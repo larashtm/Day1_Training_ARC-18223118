@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+        <form id="login-form">
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" required>
+            </div>
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember me</label>
+                </section>
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="input-submit">
+                <button type="submit" class="submit-btn">Login</button>
+            </div>
+            <div class="sign-up-link">
+                <p>Don't have an account? <a href="#">Sign up here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Arahkan pengguna ke halaman profil setelah tombol login ditekan
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Mencegah form untuk melakukan refresh halaman
+            window.location.href = 'kehadiran.html';  // Arahkan ke halaman profil setelah login
+        });
+    </script>
+</body>
+</html>
