@@ -4,19 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Simple Auth App</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="home-page">
-	<main class="home-layout">
-		<section class="hero-card">
-			<img src="assets/images/logo.png" alt="App logo" class="hero-logo">
-			<h1>Welcome to Simple Auth App</h1>
-			<p>
-				Learn login flow with a clean structure and simple JavaScript.
-			</p>
-			<div class="cta-row">
-				<a href="register.html" class="btn btn-primary">Register</a>
-				<a href="login.html" class="btn btn-outline">Login</a>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-sky-900 to-cyan-900 text-slate-900 antialiased">
+	<main class="mx-auto grid min-h-screen w-full max-w-6xl place-items-center p-6">
+		<section class="w-full max-w-xl rounded-3xl border border-white/40 bg-white/95 p-8 shadow-2xl backdrop-blur md:p-10">
+			<div class="mb-6 flex items-center gap-4">
+				<img src="assets/images/logo.png" alt="App logo" class="h-16 w-16 rounded-2xl object-cover shadow">
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Student Portal</p>
+					<h1 class="text-2xl font-bold text-slate-900 md:text-3xl">Welcome to Simple Auth App</h1>
+				</div>
+			</div>
+			<p class="text-slate-600">Start by registering your account, then login to open your academic dashboard.</p>
+			<div class="mt-7 flex flex-wrap gap-3">
+				<a href="register.html" class="rounded-xl bg-sky-700 px-5 py-2.5 text-sm font-semibold text-white shadow transition hover:bg-sky-800">Register</a>
+				<a href="login.html" class="rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">Login</a>
 			</div>
 		</section>
 	</main>

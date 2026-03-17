@@ -4,28 +4,29 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="auth-page">
-	<main class="auth-layout">
-		<section class="auth-card">
-			<img src="assets/images/logo.png" alt="App logo" class="auth-logo">
-			<h1>Register</h1>
-			<p class="muted">Create an account before you log in.</p>
+<body class="min-h-screen bg-[linear-gradient(rgba(2,6,23,0.78),rgba(2,6,23,0.82)),url('assets/images/login-bg.png')] bg-cover bg-center text-slate-900 antialiased">
+	<main class="mx-auto grid min-h-screen w-full max-w-6xl place-items-center p-6">
+		<section class="w-full max-w-md rounded-3xl border border-white/40 bg-white/95 p-8 shadow-2xl backdrop-blur md:p-9">
+			<img src="assets/images/logo.png" alt="App logo" class="mb-4 h-16 w-16 rounded-2xl object-cover shadow">
+			<h1 class="text-2xl font-bold text-slate-900">Register</h1>
+			<p class="mb-5 mt-1 text-sm text-slate-600">Create an account before you log in.</p>
 
-			<form id="registerForm" novalidate>
-				<label for="registerUsername">Username</label>
-				<input type="text" id="registerUsername" name="username" required>
+			<form id="registerForm" novalidate class="space-y-3">
+				<label for="registerUsername" class="block text-sm font-semibold text-slate-700">Username</label>
+				<input type="text" id="registerUsername" name="username" required class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm outline-none ring-0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200">
 
-				<label for="registerPassword">Password</label>
-				<input type="password" id="registerPassword" name="password" required>
+				<label for="registerPassword" class="block text-sm font-semibold text-slate-700">Password</label>
+				<input type="password" id="registerPassword" name="password" required class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm outline-none ring-0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200">
 
-				<p id="registerMessage" class="message" aria-live="polite"></p>
+				<p id="registerMessage" class="message min-h-5 text-sm" aria-live="polite"></p>
 
-				<button type="submit" class="btn btn-primary full-width">Register</button>
+				<button type="submit" class="mt-2 w-full rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white shadow transition hover:bg-sky-800">Register</button>
 			</form>
 
-			<p class="switch-text">Already have an account? <a href="login.html">Login here</a></p>
+			<p class="mt-5 text-sm text-slate-600">Already have an account? <a href="login.html" class="font-semibold text-sky-700 hover:text-sky-800">Login here</a></p>
 		</section>
 	</main>
 	<script src="js/script.js"></script>
