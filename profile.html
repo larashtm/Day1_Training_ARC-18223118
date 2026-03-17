@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Student Academic Dashboard</title>
 	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="css/style.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
@@ -39,18 +40,18 @@
 					<h2 class="text-lg font-bold text-slate-900">Student Profile</h2>
 				</div>
 				<div class="grid gap-6 p-6 xl:grid-cols-[260px_1fr]">
-					<img src="assets/images/avatar-default.jpg" alt="Student avatar" class="h-[360px] w-full max-w-[260px] rounded-2xl border border-slate-200 object-cover shadow-sm">
+					<img id="studentAvatar" src="assets/images/avatar-default.jpg" alt="Student avatar" class="h-[360px] w-full max-w-[260px] rounded-2xl border border-slate-200 object-cover shadow-sm">
 					<div class="grid gap-3 sm:grid-cols-2">
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">NIM</span><strong class="text-sm text-slate-900">18223118</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">NIM</span><strong id="nimValue" class="text-sm text-slate-900">18223118</strong></p>
 						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Name</span><strong id="profileName" class="text-sm text-slate-900">Student Name</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Faculty</span><strong class="text-sm text-slate-900">Faculty of Informatics</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Study Program</span><strong class="text-sm text-slate-900">Computer Science</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Class</span><strong class="text-sm text-slate-900">IF-46-09</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Year of Admission</span><strong class="text-sm text-slate-900">2023</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Academic Advisor</span><strong class="text-sm text-slate-900">Dr. R. Prasetyo, M.T.</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">GPA (IPK)</span><strong class="text-sm text-slate-900">3.78</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Semester GPA (IPS)</span><strong class="text-sm text-slate-900">3.84</strong></p>
-						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Total Credits (SKS)</span><strong class="text-sm text-slate-900">104</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Faculty</span><strong id="facultyValue" class="text-sm text-slate-900">Faculty of Informatics</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Study Program</span><strong id="programValue" class="text-sm text-slate-900">Computer Science</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Class</span><strong id="classValue" class="text-sm text-slate-900">IF-46-09</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Year of Admission</span><strong id="admissionYearValue" class="text-sm text-slate-900">2023</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Academic Advisor</span><strong id="advisorValue" class="text-sm text-slate-900">Dr. R. Prasetyo, M.T.</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">GPA (IPK)</span><strong id="ipkValue" class="text-sm text-slate-900">3.78</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Semester GPA (IPS)</span><strong id="ipsValue" class="text-sm text-slate-900">3.84</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Total Credits (SKS)</span><strong id="sksValue" class="text-sm text-slate-900">104</strong></p>
 					</div>
 				</div>
 			</section>
