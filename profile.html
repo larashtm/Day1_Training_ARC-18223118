@@ -3,21 +3,106 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Profile</title>
+	<title>Student Academic Dashboard</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="profile-page">
-	<main class="profile-layout">
-		<section class="profile-card">
-			<img src="assets/images/avatar-default.png" alt="Default avatar" class="avatar">
-			<h1>Profile</h1>
-			<p class="muted">Welcome back, <strong id="profileName">User</strong></p>
-			<div class="cta-row">
-				<a href="index.html" class="btn btn-outline">Home</a>
-				<button type="button" id="logoutButton" class="btn btn-primary">Logout</button>
-			</div>
-		</section>
-	</main>
+<body class="dashboard-page">
+	<header class="top-navbar">
+		<div class="brand">University Academic Portal</div>
+		<div class="welcome">Welcome, <span id="navbarUsername">Student</span></div>
+	</header>
+
+	<div class="dashboard-shell">
+		<aside class="sidebar">
+			<nav class="sidebar-nav">
+				<a href="#" class="nav-item active">Dashboard</a>
+				<a href="#profileSection" class="nav-item">Profile</a>
+				<a href="#progressSection" class="nav-item">Academic Progress</a>
+				<a href="#coursesSection" class="nav-item">Courses</a>
+				<a href="#attendanceSection" class="nav-item">Attendance</a>
+				<a href="#registrationSection" class="nav-item">Registration Status</a>
+				<button type="button" id="logoutButton" class="nav-item nav-logout">Logout</button>
+			</nav>
+		</aside>
+
+		<main class="dashboard-main">
+			<section id="profileSection" class="panel profile-panel">
+				<h2>Student Profile</h2>
+				<div class="student-card">
+					<img src="assets/images/avatar-default.png" alt="Student avatar" class="student-avatar">
+					<div class="student-data">
+						<p><span>NIM</span><strong>18223118</strong></p>
+						<p><span>Name</span><strong id="profileName">Student Name</strong></p>
+						<p><span>Faculty</span><strong>Faculty of Informatics</strong></p>
+						<p><span>Study Program</span><strong>Computer Science</strong></p>
+						<p><span>Class</span><strong>IF-46-09</strong></p>
+						<p><span>Year of Admission</span><strong>2023</strong></p>
+						<p><span>Academic Advisor</span><strong>Dr. R. Prasetyo, M.T.</strong></p>
+						<p><span>GPA (IPK)</span><strong>3.78</strong></p>
+						<p><span>Semester GPA (IPS)</span><strong>3.84</strong></p>
+						<p><span>Total Credits (SKS)</span><strong>104</strong></p>
+					</div>
+				</div>
+			</section>
+
+			<section id="progressSection" class="panel charts-grid">
+				<article class="chart-card">
+					<h3>GPA per Semester</h3>
+					<canvas id="gpaChart" height="140"></canvas>
+				</article>
+				<article id="attendanceSection" class="chart-card">
+					<h3>Attendance Statistics</h3>
+					<canvas id="attendanceChart" height="140"></canvas>
+				</article>
+			</section>
+
+			<section id="coursesSection" class="panel">
+				<h2>Semester Courses</h2>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Course Code</th>
+								<th>Course Name</th>
+								<th>Class</th>
+								<th>Credits (SKS)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>IF301</td><td>Database Systems</td><td>A</td><td>3</td></tr>
+							<tr><td>IF302</td><td>Software Engineering</td><td>B</td><td>3</td></tr>
+							<tr><td>IF303</td><td>Computer Networks</td><td>A</td><td>3</td></tr>
+							<tr><td>IF304</td><td>Web Programming</td><td>C</td><td>2</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section id="registrationSection" class="panel">
+				<h2>Registration Status</h2>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Academic Year</th>
+								<th>Semester</th>
+								<th>Course</th>
+								<th>Credits</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>2025/2026</td><td>Odd</td><td>Database Systems</td><td>3</td><td>Approved</td></tr>
+							<tr><td>2025/2026</td><td>Odd</td><td>Software Engineering</td><td>3</td><td>Approved</td></tr>
+							<tr><td>2025/2026</td><td>Odd</td><td>Computer Networks</td><td>3</td><td>Approved</td></tr>
+							<tr><td>2025/2026</td><td>Odd</td><td>Web Programming</td><td>2</td><td>Pending</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+	</div>
 	<script src="js/script.js"></script>
 </body>
 </html>

@@ -129,6 +129,75 @@ function handleProfilePage() {
 
 	profileName.textContent = loggedInUser;
 
+	const navbarUsername = document.getElementById("navbarUsername");
+	if (navbarUsername) {
+		navbarUsername.textContent = loggedInUser;
+	}
+
+	if (typeof Chart !== "undefined") {
+		const gpaChartCanvas = document.getElementById("gpaChart");
+		if (gpaChartCanvas) {
+			new Chart(gpaChartCanvas, {
+				type: "line",
+				data: {
+					labels: ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6"],
+					datasets: [
+						{
+							label: "GPA",
+							data: [3.45, 3.55, 3.63, 3.72, 3.79, 3.84],
+							borderColor: "#0284c7",
+							backgroundColor: "rgba(2, 132, 199, 0.18)",
+							fill: true,
+							tension: 0.35,
+							pointRadius: 3
+						}
+					]
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							display: true
+						}
+					},
+					scales: {
+						y: {
+							min: 2.5,
+							max: 4,
+							ticks: {
+								stepSize: 0.25
+							}
+						}
+					}
+				}
+			});
+		}
+
+		const attendanceChartCanvas = document.getElementById("attendanceChart");
+		if (attendanceChartCanvas) {
+			new Chart(attendanceChartCanvas, {
+				type: "pie",
+				data: {
+					labels: ["Present", "Excused", "Sick", "Absent"],
+					datasets: [
+						{
+							data: [82, 8, 6, 4],
+							backgroundColor: ["#10b981", "#f59e0b", "#3b82f6", "#ef4444"]
+						}
+					]
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							position: "bottom"
+						}
+					}
+				}
+			});
+		}
+	}
+
 	const logoutButton = document.getElementById("logoutButton");
 	if (logoutButton) {
 		logoutButton.addEventListener("click", function () {
