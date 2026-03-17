@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+	<main class="auth-layout">
+		<section class="auth-card">
+			<img src="assets/images/logo.png" alt="App logo" class="auth-logo">
+			<h1>Register</h1>
+			<p class="muted">Create an account before you log in.</p>
+
+			<form id="registerForm" novalidate>
+				<label for="registerUsername">Username</label>
+				<input type="text" id="registerUsername" name="username" required>
+
+				<label for="registerPassword">Password</label>
+				<input type="password" id="registerPassword" name="password" required>
+
+				<p id="registerMessage" class="message" aria-live="polite"></p>
+
+				<button type="submit" class="btn btn-primary full-width">Register</button>
+			</form>
+
+			<p class="switch-text">Already have an account? <a href="login.html">Login here</a></p>
+		</section>
+	</main>
+	<script src="js/script.js"></script>
+</body>
+</html>

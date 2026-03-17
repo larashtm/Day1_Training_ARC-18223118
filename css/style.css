@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+	--bg-dark: #0f172a;
+	--bg-mid: #1e293b;
+	--bg-soft: #334155;
+	--card-bg: rgba(255, 255, 255, 0.92);
+	--text: #0f172a;
+	--muted: #475569;
+	--accent: #0f766e;
+	--accent-hover: #115e59;
+	--border: #cbd5e1;
+	--error: #b91c1c;
+	--success: #166534;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Space Grotesk', sans-serif;
+	min-height: 100vh;
+	color: var(--text);
+}
+
+.home-page,
+.profile-page {
+	background: radial-gradient(circle at 20% 20%, #22d3ee 0%, transparent 35%),
+		radial-gradient(circle at 80% 0%, #f59e0b 0%, transparent 30%),
+		linear-gradient(140deg, var(--bg-dark), var(--bg-mid), var(--bg-soft));
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+}
+
+.auth-page {
+	background: linear-gradient(rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.78)),
+		url('../assets/images/login-bg.png') center/cover no-repeat;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+}
+
+.home-layout,
+.auth-layout,
+.profile-layout {
+	width: 100%;
+	max-width: 420px;
+}
+
+.hero-card,
+.auth-card,
+.profile-card {
+	background: var(--card-bg);
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 20px;
+	padding: 2rem;
+	backdrop-filter: blur(4px);
+	box-shadow: 0 10px 40px rgba(15, 23, 42, 0.35);
+}
+
+.hero-logo,
+.auth-logo {
+	width: 72px;
+	height: 72px;
+	object-fit: cover;
+	border-radius: 16px;
+	margin-bottom: 1rem;
+}
+
+h1 {
+	font-size: 1.8rem;
+	margin-bottom: 0.5rem;
+}
+
+.muted {
+	color: var(--muted);
+	margin-bottom: 1rem;
+}
+
+form {
+	display: grid;
+	gap: 0.75rem;
+}
+
+label {
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+input {
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 0.75rem 0.85rem;
+	font: inherit;
+}
+
+input:focus {
+	outline: 2px solid #67e8f9;
+	border-color: #0891b2;
+}
+
+.message {
+	min-height: 1.2rem;
+	font-size: 0.9rem;
+}
+
+.message.error {
+	color: var(--error);
+}
+
+.message.success {
+	color: var(--success);
+}
+
+.btn {
+	border: none;
+	border-radius: 10px;
+	padding: 0.75rem 1rem;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+	transform: translateY(-1px);
+}
+
+.btn-primary {
+	background: var(--accent);
+	color: #fff;
+}
+
+.btn-primary:hover {
+	background: var(--accent-hover);
+}
+
+.btn-outline {
+	background: transparent;
+	color: #fff;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.auth-card .btn-outline,
+.profile-card .btn-outline {
+	color: var(--text);
+	border-color: var(--border);
+}
+
+.full-width {
+	width: 100%;
+}
+
+.switch-text {
+	margin-top: 1rem;
+	color: var(--muted);
+}
+
+.switch-text a {
+	color: #0369a1;
+	font-weight: 600;
+}
+
+.cta-row {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: 1rem;
+	flex-wrap: wrap;
+}
+
+.avatar {
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	border: 3px solid #bae6fd;
+	margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+	.hero-card,
+	.auth-card,
+	.profile-card {
+		padding: 1.25rem;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+}
