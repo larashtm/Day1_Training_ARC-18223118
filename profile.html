@@ -4,99 +4,129 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Student Academic Dashboard</title>
-	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						brand: {
+							50: "#f0f9ff",
+							100: "#e0f2fe",
+							600: "#0284c7",
+							700: "#0369a1",
+							900: "#0c4a6e"
+						}
+					}
+				}
+			}
+		};
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="dashboard-page">
-	<header class="top-navbar">
-		<div class="brand">University Academic Portal</div>
-		<div class="welcome">Welcome, <span id="navbarUsername">Student</span></div>
+<body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
+	<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+		<div class="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between px-4 md:px-6">
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">University Academic Portal</p>
+				<p class="text-base font-bold text-slate-900 md:text-lg">Student Dashboard</p>
+			</div>
+			<div class="rounded-full border border-sky-100 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
+				Welcome, <span id="navbarUsername" class="font-semibold">Student</span>
+			</div>
+		</div>
 	</header>
 
-	<div class="dashboard-shell">
-		<aside class="sidebar">
-			<nav class="sidebar-nav">
-				<a href="#" class="nav-item active">Dashboard</a>
-				<a href="#profileSection" class="nav-item">Profile</a>
-				<a href="#progressSection" class="nav-item">Academic Progress</a>
-				<a href="#coursesSection" class="nav-item">Courses</a>
-				<a href="#attendanceSection" class="nav-item">Attendance</a>
-				<a href="#registrationSection" class="nav-item">Registration Status</a>
-				<button type="button" id="logoutButton" class="nav-item nav-logout">Logout</button>
+	<div class="mx-auto flex w-full max-w-[1600px] flex-col lg:min-h-[calc(100vh-64px)] lg:flex-row">
+		<aside class="border-b border-slate-200 bg-white p-4 lg:w-72 lg:border-b-0 lg:border-r lg:p-5">
+			<nav class="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+				<a href="#" class="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">Dashboard</a>
+				<a href="#profileSection" class="rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Profile</a>
+				<a href="#progressSection" class="rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Academic Progress</a>
+				<a href="#coursesSection" class="rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Courses</a>
+				<a href="#attendanceSection" class="rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Attendance</a>
+				<a href="#registrationSection" class="rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Registration Status</a>
+				<button type="button" id="logoutButton" class="rounded-xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-left text-sm font-semibold text-rose-700 transition hover:bg-rose-100">Logout</button>
 			</nav>
 		</aside>
 
-		<main class="dashboard-main">
-			<section id="profileSection" class="panel profile-panel">
-				<h2>Student Profile</h2>
-				<div class="student-card">
-					<img src="assets/images/avatar-default.jpg" alt="Student avatar" class="student-avatar">
-					<div class="student-data">
-						<p><span>NIM</span><strong>18223118</strong></p>
-						<p><span>Name</span><strong id="profileName">Student Name</strong></p>
-						<p><span>Faculty</span><strong>Faculty of Informatics</strong></p>
-						<p><span>Study Program</span><strong>Computer Science</strong></p>
-						<p><span>Class</span><strong>IF-46-09</strong></p>
-						<p><span>Year of Admission</span><strong>2023</strong></p>
-						<p><span>Academic Advisor</span><strong>Dr. R. Prasetyo, M.T.</strong></p>
-						<p><span>GPA (IPK)</span><strong>3.78</strong></p>
-						<p><span>Semester GPA (IPS)</span><strong>3.84</strong></p>
-						<p><span>Total Credits (SKS)</span><strong>104</strong></p>
+		<main class="flex-1 space-y-6 p-4 md:p-6">
+			<section id="profileSection" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+				<div class="border-b border-slate-100 px-6 py-4">
+					<h2 class="text-lg font-bold text-slate-900">Student Profile</h2>
+				</div>
+				<div class="grid gap-6 p-6 xl:grid-cols-[260px_1fr]">
+					<img src="assets/images/avatar-default.jpg" alt="Student avatar" class="h-[360px] w-full max-w-[260px] rounded-2xl border border-slate-200 object-cover shadow-sm">
+					<div class="grid gap-3 sm:grid-cols-2">
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">NIM</span><strong class="text-sm text-slate-900">18223118</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Name</span><strong id="profileName" class="text-sm text-slate-900">Student Name</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Faculty</span><strong class="text-sm text-slate-900">Faculty of Informatics</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Study Program</span><strong class="text-sm text-slate-900">Computer Science</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Class</span><strong class="text-sm text-slate-900">IF-46-09</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Year of Admission</span><strong class="text-sm text-slate-900">2023</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Academic Advisor</span><strong class="text-sm text-slate-900">Dr. R. Prasetyo, M.T.</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">GPA (IPK)</span><strong class="text-sm text-slate-900">3.78</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Semester GPA (IPS)</span><strong class="text-sm text-slate-900">3.84</strong></p>
+						<p class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"><span class="text-sm text-slate-500">Total Credits (SKS)</span><strong class="text-sm text-slate-900">104</strong></p>
 					</div>
 				</div>
 			</section>
 
-			<section id="progressSection" class="panel charts-grid">
-				<article class="chart-card">
-					<h3>GPA per Semester</h3>
-					<canvas id="gpaChart" height="140"></canvas>
+			<section id="progressSection" class="grid gap-6 xl:grid-cols-2">
+				<article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+					<h3 class="mb-4 text-base font-bold text-slate-900">GPA per Semester</h3>
+					<div class="h-[260px] w-full">
+						<canvas id="gpaChart" class="h-full w-full" height="140"></canvas>
+					</div>
 				</article>
-				<article id="attendanceSection" class="chart-card">
-					<h3>Attendance Statistics</h3>
-					<canvas id="attendanceChart" height="140"></canvas>
+				<article id="attendanceSection" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+					<h3 class="mb-4 text-base font-bold text-slate-900">Attendance Statistics</h3>
+					<div class="h-[260px] w-full">
+						<canvas id="attendanceChart" class="h-full w-full" height="140"></canvas>
+					</div>
 				</article>
 			</section>
 
-			<section id="coursesSection" class="panel">
-				<h2>Semester Courses</h2>
-				<div class="table-wrap">
-					<table>
-						<thead>
+			<section id="coursesSection" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+				<h2 class="mb-4 text-lg font-bold text-slate-900">Semester Courses</h2>
+				<div class="overflow-x-auto rounded-xl border border-slate-200">
+					<table class="min-w-full divide-y divide-slate-200 text-sm">
+						<thead class="bg-slate-50">
 							<tr>
-								<th>Course Code</th>
-								<th>Course Name</th>
-								<th>Class</th>
-								<th>Credits (SKS)</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Course Code</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Course Name</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Class</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Credits (SKS)</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr><td>IF301</td><td>Database Systems</td><td>A</td><td>3</td></tr>
-							<tr><td>IF302</td><td>Software Engineering</td><td>B</td><td>3</td></tr>
-							<tr><td>IF303</td><td>Computer Networks</td><td>A</td><td>3</td></tr>
-							<tr><td>IF304</td><td>Web Programming</td><td>C</td><td>2</td></tr>
+						<tbody class="divide-y divide-slate-100 bg-white">
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">IF301</td><td class="px-4 py-3">Database Systems</td><td class="px-4 py-3">A</td><td class="px-4 py-3">3</td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">IF302</td><td class="px-4 py-3">Software Engineering</td><td class="px-4 py-3">B</td><td class="px-4 py-3">3</td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">IF303</td><td class="px-4 py-3">Computer Networks</td><td class="px-4 py-3">A</td><td class="px-4 py-3">3</td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">IF304</td><td class="px-4 py-3">Web Programming</td><td class="px-4 py-3">C</td><td class="px-4 py-3">2</td></tr>
 						</tbody>
 					</table>
 				</div>
 			</section>
 
-			<section id="registrationSection" class="panel">
-				<h2>Registration Status</h2>
-				<div class="table-wrap">
-					<table>
-						<thead>
+			<section id="registrationSection" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+				<h2 class="mb-4 text-lg font-bold text-slate-900">Registration Status</h2>
+				<div class="overflow-x-auto rounded-xl border border-slate-200">
+					<table class="min-w-full divide-y divide-slate-200 text-sm">
+						<thead class="bg-slate-50">
 							<tr>
-								<th>Academic Year</th>
-								<th>Semester</th>
-								<th>Course</th>
-								<th>Credits</th>
-								<th>Status</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Academic Year</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Semester</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Course</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Credits</th>
+								<th class="px-4 py-3 text-left font-semibold text-slate-700">Status</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr><td>2025/2026</td><td>Odd</td><td>Database Systems</td><td>3</td><td>Approved</td></tr>
-							<tr><td>2025/2026</td><td>Odd</td><td>Software Engineering</td><td>3</td><td>Approved</td></tr>
-							<tr><td>2025/2026</td><td>Odd</td><td>Computer Networks</td><td>3</td><td>Approved</td></tr>
-							<tr><td>2025/2026</td><td>Odd</td><td>Web Programming</td><td>2</td><td>Pending</td></tr>
+						<tbody class="divide-y divide-slate-100 bg-white">
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">2025/2026</td><td class="px-4 py-3">Odd</td><td class="px-4 py-3">Database Systems</td><td class="px-4 py-3">3</td><td class="px-4 py-3"><span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Approved</span></td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">2025/2026</td><td class="px-4 py-3">Odd</td><td class="px-4 py-3">Software Engineering</td><td class="px-4 py-3">3</td><td class="px-4 py-3"><span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Approved</span></td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">2025/2026</td><td class="px-4 py-3">Odd</td><td class="px-4 py-3">Computer Networks</td><td class="px-4 py-3">3</td><td class="px-4 py-3"><span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Approved</span></td></tr>
+							<tr class="hover:bg-slate-50"><td class="px-4 py-3">2025/2026</td><td class="px-4 py-3">Odd</td><td class="px-4 py-3">Web Programming</td><td class="px-4 py-3">2</td><td class="px-4 py-3"><span class="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700">Pending</span></td></tr>
 						</tbody>
 					</table>
 				</div>
